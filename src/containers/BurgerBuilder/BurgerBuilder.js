@@ -1,5 +1,6 @@
 import React from "react";
-import Aux from "../../hoc/Auxiliary"
+import Aux from "../../hoc/Auxiliary";
+import axios from "../../axios-orders";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import Burger from '../../components/Burger/Burger';
@@ -21,7 +22,8 @@ class BurgerBuilder extends React.Component {
         },
         totalPrice:20,
         purchasable:false,
-        purchasing:false
+        purchasing:false,
+        
     }
 
     updatePurchaseState(ingredients){
