@@ -1,6 +1,7 @@
 import React from "react";
 import Aux from "../../hoc/Auxiliary";
 import axios from "../../axios-orders";
+import Spinner from "../../components/UI/Spinner/Spinner";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import Burger from '../../components/Burger/Burger';
@@ -102,18 +103,22 @@ class BurgerBuilder extends React.Component {
         for(let i in disabledInfo){
             disabledInfo[i] = disabledInfo[i]<=0
         }
+        let orderSummary =  <OrderSummary 
+            price={this.state.totalPrice.toFixed(2)}
+            ingredients={this.state.ingredients}
+            purchaseCanceled={this.purchaseCancelHandler} //
+            purchaseContinue={this.purchaseContinueHandler} //
+        />
+        if(this.state.loading){
+            orderSummary = <Spinner />;
+        }
         return(
             <Aux>
                 <Modal 
                     show={this.state.purchasing}
                     modalClosed={this.purchaseCancelHandler}
                     >
-                    <OrderSummary 
-                        price={this.state.totalPrice.toFixed(2)}
-                        ingredients={this.state.ingredients}
-                        purchaseCanceled={this.purchaseCancelHandler} //
-                        purchaseContinue={this.purchaseContinueHandler} //
-                    />
+                   {orderSummary}
                 </Modal>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls
