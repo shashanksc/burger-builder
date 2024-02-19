@@ -73,7 +73,26 @@ class BurgerBuilder extends React.Component {
     purchaseCancelHandler=()=>{
         this.setState({purchasing:false});
     }
-    purchaseContinueHandler=()=>{alert("Purchase");}
+    purchaseContinueHandler=()=>{
+        const order ={
+            ingredients: this.state.ingredients,
+            price: this.state.totalPrice,
+            customer: {
+                name : 'John Doe',
+                address:{
+                    street:'125 Main St',
+                    locality: 'anytown',
+                    country: 'India',
+                    pin: '834001'
+                },
+            email : 'mail@address.com'
+            },
+            deliveryMethod : 'fastest'
+        }
+        axios.post('/orders.json', order)
+        .then(response=>console.log(response))
+        .catch(error=>console.log(error));
+    }
     render(){
         const disabledInfo ={
             ...this.state.ingredients
