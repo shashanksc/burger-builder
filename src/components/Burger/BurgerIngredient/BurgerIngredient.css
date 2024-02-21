@@ -83,24 +83,24 @@
 
 .Meat {
   width: 80%;
-  height: 5%;
-  background: linear-gradient(#7f3608, #704705);
-  margin: 1% auto;
+  height: 8%;
+  background: linear-gradient(#7f3608, #702e05);
+  margin: 2% auto;
   border-radius: 15px;
 }
 
 .Cheese {
   width: 90%;
   height: 4.5%;
-  margin: 1% auto;
+  margin: 2% auto;
   background: linear-gradient(#f4d004, #d6bb22);
   border-radius: 20px;
 }
 
 .Salad {
   width: 85%;
-  height: 4%;
-  margin: 1% auto;
+  height: 7%;
+  margin: 2% auto;
   background: linear-gradient(#228c1d, #91ce50);
   border-radius: 20px;
 }
